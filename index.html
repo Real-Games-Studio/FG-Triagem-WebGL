@@ -24,26 +24,18 @@
       </div>
     </div>
     <script>
-	  function enterFullscreen() {
-        let canvas = document.getElementById("unity-canvas"); 
-        if (canvas.requestFullscreen) {
-            canvas.requestFullscreen();
-        } else if (canvas.mozRequestFullScreen) { // Firefox
-            canvas.mozRequestFullScreen();
-        } else if (canvas.webkitRequestFullscreen) { // Safari
-            canvas.webkitRequestFullscreen();
-        } else if (canvas.msRequestFullscreen) { // Edge
-            canvas.msRequestFullscreen();
-        }
-        
-        // Remove o listener após a primeira interação
-        document.removeEventListener("touchend", enterFullscreen);
-        document.removeEventListener("click", enterFullscreen);
+	  function RequestFullscreen() {
+    var canvas = document.getElementById('unity-canvas');
+    if (canvas.requestFullscreen) {
+        canvas.requestFullscreen();
+    } else if (canvas.mozRequestFullScreen) { // Firefox
+        canvas.mozRequestFullScreen();
+    } else if (canvas.webkitRequestFullscreen) { // Chrome, Safari and Opera
+        canvas.webkitRequestFullscreen();
+    } else if (canvas.msRequestFullscreen) { // IE/Edge
+        canvas.msRequestFullscreen();
     }
-
-    // Aguarda um toque na tela ou um clique para ativar fullscreen
-    document.addEventListener("touchend", enterFullscreen);
-    document.addEventListener("click", enterFullscreen);
+}
 	
       var canvas = document.querySelector("#unity-canvas");
 
