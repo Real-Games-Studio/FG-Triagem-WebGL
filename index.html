@@ -35,15 +35,7 @@
         } else if (canvas.msRequestFullscreen) { // Edge
             canvas.msRequestFullscreen();
         }
-        
-        // Remove o listener após a primeira interação
-        document.removeEventListener("touchend", enterFullscreen);
-        document.removeEventListener("click", enterFullscreen);
     }
-
-    // Aguarda um toque na tela ou um clique para ativar fullscreen
-    document.addEventListener("touchend", enterFullscreen);
-    document.addEventListener("click", enterFullscreen);
 	
       var canvas = document.querySelector("#unity-canvas");
 
