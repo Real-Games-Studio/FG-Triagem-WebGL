@@ -24,7 +24,8 @@
       </div>
     </div>
     <script>
-	  function RequestFullscreen() {
+	mergeInto(LibraryManager.library, {
+	  RequestFullscreen: function () {
     var canvas = document.getElementById('unity-canvas');
     if (canvas.requestFullscreen) {
         canvas.requestFullscreen();
@@ -35,7 +36,8 @@
     } else if (canvas.msRequestFullscreen) { // IE/Edge
         canvas.msRequestFullscreen();
     }
-}
+},
+});
 	
       var canvas = document.querySelector("#unity-canvas");
 
