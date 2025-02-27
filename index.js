@@ -1,21 +1,20 @@
 function enterFullscreen() {
     let canvas = document.getElementById("#canvas");
+    if (!canvas) {
+        console.error("Canvas da Unity não encontrado!");
+        return;
+    }
+
     if (canvas.requestFullscreen) {
         canvas.requestFullscreen();
-    } else if (canvas.mozRequestFullScreen) { // Firefox
+    } else if (canvas.mozRequestFullScreen) {
         canvas.mozRequestFullScreen();
-    } else if (canvas.webkitRequestFullscreen) { // Chrome, Safari, Opera
+    } else if (canvas.webkitRequestFullscreen) {
         canvas.webkitRequestFullscreen();
-    } else if (canvas.msRequestFullscreen) { // IE/Edge
+    } else if (canvas.msRequestFullscreen) {
         canvas.msRequestFullscreen();
     }
 }
 
-function unityFullscreen() {
-    if (typeof gameInstance !== 'undefined' && gameInstance) {
-        enterFullscreen();
-    }
-}
-
-// Disponibilizar para o Unity chamar
-window.unityFullscreen = unityFullscreen;
+// Define a função globalmente
+window.enterFullscreen = enterFullscreen;
