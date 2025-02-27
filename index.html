@@ -6,6 +6,27 @@
     <title>Unity Web Player | FG Tela WebGL</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
+<script>
+        function enterFullScreen() {
+            let element = document.documentElement;
+
+            if (element.requestFullscreen) {
+                element.requestFullscreen();
+            } else if (element.mozRequestFullScreen) { // Firefox
+                element.mozRequestFullScreen();
+            } else if (element.webkitRequestFullscreen) { // Safari
+                element.webkitRequestFullscreen();
+            } else if (element.msRequestFullscreen) { // IE/Edge
+                element.msRequestFullscreen();
+            }
+        }
+
+        window.onload = function () {
+            setTimeout(() => {
+                enterFullScreen();
+            }, 500); // Pequeno delay para garantir que a página foi carregada
+        };
+    </script>
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
